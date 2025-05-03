@@ -1,0 +1,36 @@
+// src/styles/layout/_container.scss
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 v.$spacing-md;
+  
+  @include m.breakpoint(sm) {
+    max-width: 540px;
+  }
+  
+  @include m.breakpoint(md) {
+    max-width: 720px;
+  }
+  
+  @include m.breakpoint(lg) {
+    max-width: 960px;
+  }
+  
+  @include m.breakpoint(xl) {
+    max-width: 1140px;
+  }
+}
+
+//variants
+.container--fluid {
+  max-width: 100%;
+}
+
+.container--narrow {
+  @include m.breakpoint(lg) {
+    max-width: 800px;
+  }
+}

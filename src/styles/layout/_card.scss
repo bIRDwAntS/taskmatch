@@ -1,0 +1,34 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.card {
+  background: v.$color-white;
+  border-radius: v.$border-radius;
+  box-shadow: v.$shadow-sm;
+  overflow: hidden;
+  
+  &__header {
+    padding: v.$spacing-md;
+    border-bottom: 1px solid v.$border-color;
+  }
+  
+  &__body {
+    padding: v.$spacing-md;
+  }
+  
+  &__footer {
+    padding: v.$spacing-md;
+    border-top: 1px solid v.$border-color;
+    background-color: v.$color-gray-50;
+  }
+  
+  //service card variant
+  &--service {
+    transition: all 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: v.$shadow-md;
+    }
+  }
+}

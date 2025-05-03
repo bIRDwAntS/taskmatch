@@ -1,0 +1,24 @@
+@use '../abstracts/variables' as v;
+
+//custom transition base in which property can be set : ex : @include a.transition-base(transform);
+$transition-base: all 0.2s ease;
+
+//custom property
+@mixin transition-base($property: all) {
+    transition: $property 0.2s ease;
+  }
+
+  //transform+shadow
+@mixin transition-lift {
+    @include transition-base(transform box-shadow, 0.25s);
+  }
+
+  //fade
+  @mixin transition-fade {
+    @include transition-base(opacity, 0.3s, ease-in-out);
+  }
+
+  //background-color+border
+  @mixin transition-interactive {
+    @include transition-base(background-color border-color, 0.2s);
+  }

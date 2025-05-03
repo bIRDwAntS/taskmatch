@@ -1,0 +1,46 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.grid {
+  display: grid;
+  gap: v.$spacing-md;
+  
+  //mobile-first grid
+  grid-template-columns: 1fr;
+  
+  @include m.breakpoint(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include m.breakpoint(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @include m.breakpoint(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  //variants
+  &--2 {
+    @include m.breakpoint(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  &--3 {
+    @include m.breakpoint(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+//flex row for simple layout
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(v.$spacing-md * -0.5);
+  
+  > * { //target all children
+    padding: 0 calc(v.$spacing-md * 0.5);
+  }
+}

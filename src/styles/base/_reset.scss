@@ -1,0 +1,62 @@
+//reset CSS for better custom
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; //ease width calculation
+}
+
+html {
+    font-size: 62.5%; // 1rem = 10px, ease calcuation
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem; // 16px for better accessibility 
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased; // makes fonts render thinner and sharper on macOS/iOS
+    -moz-osx-font-smoothing: grayscale; // Firefox equivalent for crisp font rendering on macOS
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: inherit; //this allows headings to be styled purely through custom CSS classes, preventing unwanted browser-specific styling and ensuring consistent typography
+    font-size: inherit;
+  }
+
+  p, ul, ol {
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul, ol {
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    //making image reponsive by default
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  button {
+    //reset form btn
+    cursor: pointer;
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+  }
+  
+  input, textarea, select {
+    font: inherit;
+  }

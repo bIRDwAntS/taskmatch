@@ -1,0 +1,32 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.section {
+  padding: v.$spacing-xl 0;
+  
+  @include m.breakpoint(md) {
+    padding: v.$spacing-2xl 0;
+  }
+  
+  //spacing variants
+  &--sm {
+    padding: v.$spacing-lg 0;
+  }
+  
+  &--lg {
+    padding: v.$spacing-2xl 0;
+    
+    @include m.breakpoint(md) {
+      padding: v.$spacing-3xl 0;
+    }
+  }
+  
+  //background color variants
+  &--gray {
+    background-color: v.$color-gray-50;
+  }
+  
+  &--primary {
+    background-color: v.$color-primary-light;
+  }
+}

@@ -1,0 +1,25 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.footer {
+  background: v.$color-gray-900;
+  color: v.$color-white;
+  padding: v.$spacing-xl 0 v.$spacing-md;
+  
+  &__content {
+    display: grid;
+    gap: v.$spacing-xl;
+    
+    @include m.breakpoint(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  &__copyright {
+    border-top: 1px solid v.$border-color-light;
+    margin-top: v.$spacing-xl;
+    padding-top: v.$spacing-md;
+    text-align: center;
+    color: v.$text-light;
+  }
+}

@@ -1,0 +1,73 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../base/animations" as a;
+
+//button base & states
+.btn {
+  display: inline-block;
+  padding: v.$spacing-xs v.$spacing-sm;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  border-radius: v.$border-radius;
+  cursor: pointer;
+  @include a.transition-base;
+  text-decoration: none;
+  user-select: none; //copy btn text denied
+  border: none; //not set for variations
+  background: none; //not set for variations
+
+  //size variations
+  &--small {
+    padding: 0.6rem 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  &--large {
+    padding: 1.2rem 2.4rem;
+    font-size: 1.8rem;
+  }
+  //common states
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(v.$color-primary, 0.1);
+  }
+  &--loading {
+    position: relative;
+    color: transparent !important;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-top: -0.8rem;
+      margin-left: -0.8rem;
+      border: 2px solid v.$color-white;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+    }
+  }
+}
+
+//variations
+.btn--primary {
+    @include m.button-variant(v.$color-primary);
+  }
+
+  .btn--secondary {
+    @include m.button-variant-outline(v.$color-primary);
+  }
+  
+  .btn--danger {
+    @include m.button-variant(v.$color-danger);
+  }
+  
+
+  .btn--success {
+    @include m.button-variant(v.$color-success); 
+  }

@@ -1,0 +1,65 @@
+//reset & basic setup
+
+body {
+    font-family: v.$font-primary;
+    color: v.$text-primary;
+    line-height: 1.6;
+  }
+
+  h1, .h1 { //if I want to use same setup for non heading texts
+    @include m.font-size(3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    
+    @include m.breakpoint(md) {
+      @include m.font-size(4rem);
+    }
+  }
+
+  h2, .h2 { //if I want to use same setup for non heading texts
+    @include m.font-size(2.4rem);
+    font-weight: 600;
+    line-height: 1.3;
+    
+    @include m.breakpoint(md) {
+      @include m.font-size(3.2rem);
+    }
+  }
+
+  h3, .h3 { //if I want to use same setup for non heading texts
+    @include m.font-size(2rem);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  
+
+  .text-small {
+    @include m.font-size(1.4rem);
+  }
+  
+  .text-large {
+    @include m.font-size(1.8rem);
+  }
+  
+  .text-bold {
+    font-weight: 600;
+  }
+
+  //specific styles for marketplace
+  .service-title {
+    @include m.font-size(1.8rem);
+    font-weight: 600;
+    margin-bottom: v.$spacing-sm;
+  }
+  
+  .service-price {
+    @include m.font-size(2.4rem);
+    font-weight: 700;
+    color: v.$color-primary;
+  }
+  
+  .review-text {
+    @include m.font-size(1.4rem);
+    color: v.$text-secondary;
+    font-style: italic;
+  }
