@@ -1,34 +1,43 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as m;
+@use '../abstracts' as *;
+@use 'sass:map';
 
 .card {
-  background: v.$color-white;
-  border-radius: v.$border-radius;
-  box-shadow: v.$shadow-sm;
+  background: color('neutral');
+  border-radius: map.get($border-radius, 'base');
+  box-shadow: map.get($shadows, 'sm');
   overflow: hidden;
   
   &__header {
-    padding: v.$spacing-md;
-    border-bottom: 1px solid v.$border-color;
+    padding: spacing('md');
+    border-bottom: 1px solid map.get($form, 'border-color');
   }
   
   &__body {
-    padding: v.$spacing-md;
+    padding: spacing('md');
   }
   
   &__footer {
-    padding: v.$spacing-md;
-    border-top: 1px solid v.$border-color;
-    background-color: v.$color-gray-50;
+    padding: spacing('md');
+    border-top: 1px solid map.get($form, 'border-color');
+    background-color: var(--color-neutral); //css custom property
   }
-  
+
   //service card variant
-  &--service {
-    transition: all 0.2s ease;
+   &--service {
+    @include transition(all); 
     
     &:hover {
       transform: translateY(-4px);
-      box-shadow: v.$shadow-md;
+      box-shadow: map.get($shadows, 'md');
+    }
+  }
+
+  //responsive adjustments
+  @include media('sm') {
+    &__header,
+    &__body,
+    &__footer {
+      padding: spacing('lg');
     }
   }
 }

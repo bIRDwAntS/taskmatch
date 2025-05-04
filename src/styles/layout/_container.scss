@@ -1,36 +1,52 @@
-// src/styles/layout/_container.scss
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as m;
+@use '../abstracts' as *;
 
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 v.$spacing-md;
+  padding: 0 spacing('md'); // Utilise la fonction helper
   
-  @include m.breakpoint(sm) {
-    max-width: 540px;
-  }
+  $container-widths: (
+    'sm': 540px,
+    'md': 720px,
+    'lg': 960px,
+    'xl': 1140px
+  );
   
-  @include m.breakpoint(md) {
-    max-width: 720px;
-  }
-  
-  @include m.breakpoint(lg) {
-    max-width: 960px;
-  }
-  
-  @include m.breakpoint(xl) {
-    max-width: 1140px;
+  //loops to generate media queries
+  @each $breakpoint, $max-width in $container-widths {
+    @include media($breakpoint) {
+      max-width: $max-width;
+    }
   }
 }
 
-//variants
+//Variants
 .container--fluid {
   max-width: 100%;
 }
 
 .container--narrow {
-  @include m.breakpoint(lg) {
+  @include media('lg') {
     max-width: 800px;
   }
 }
+
+// custom properties for more felxibility
+.container {
+  --container-padding: #{spacing('md')};
+  padding-inline: var(--container-padding);
+  
+  @include media('lg') {
+    --container-padding: #{spacing('lg')};
+  }
+}
+
+//HOW TO USE :
+// <div class="container"> // base container responsive
+//   <h1>My content</h1>
+//   <p>responsive</p>
+// </div>
+//OR
+// <div class="container container--narrow"> 
+//   <article>Maximum 800px on desktop</article>
+// </div>

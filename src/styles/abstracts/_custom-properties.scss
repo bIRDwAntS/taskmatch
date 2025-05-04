@@ -1,0 +1,25 @@
+//this mixin use a loop @each to run all the map's entries & auto create the related custom properties
+@use 'variables' as *; 
+@mixin generate-custom-properties() {
+    :root {
+      // Colors
+      @each $name, $color in $colors {
+        --color-#{$name}: #{$color};
+      }
+      
+      // Text colors
+      @each $name, $color in $text-colors {
+        --text-#{$name}: #{$color};
+      }
+      
+      // Spacing
+      @each $name, $space in $spacing {
+        --spacing-#{$name}: #{$space};
+      }
+      
+      // Font sizes
+      @each $name, $size in $font-sizes {
+        --font-size-#{$name}: #{$size};
+      }
+    }
+  }

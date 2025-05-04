@@ -1,34 +1,145 @@
 //essential variables for MVP
 
-//typo
-$font-primary: 'Inter', sans-serif;
-$text-primary: #1a1a1a;
-$text-secondary: #6b7280;
-$text-light: #9ca3af;
+// -----------------------------------------------------------------------------
+// DESIGN TOKENS
+// -----------------------------------------------------------------------------
 
-//primary colors
-$color-primary: #3b82f6;
-$color-white: #ffffff;
-$color-gray-100: #f3f4f6;
-$color-danger: #ef4444;
-$color-success: #10b981;
+// COLORS
+// Base colors
+$colors: (
+  "primary": #ffffff,
+  "secondary": #fdf8f4,
+  "info": #e8f6f1,
+  "avis": #fff5e6,
+  "neutral": #e5e5e5,
+  "neutral-dark": #999999,
+  'dark': #1a1a1a,
+  "success": #10b981,
+  "danger": #ef4444,
+  "warning": #f7a61b,
+);
 
-//spacing (based on 8px)
-$spacing-xs: 0.8rem;
-$spacing-sm: 1.6rem;
-$spacing-md: 2.4rem;
-$spacing-lg: 3.2rem;
+// Text colors
+$text-colors: (
+  "primary": #333333,
+  "secondary": #666666,
+  "white": #ffffff,
+  "muted": #6b7280,
+  "cta": #ff478f,
+  "info": #18a175,
+);
 
+// Component colors
+$button-colors: (
+  "cta": #18a175,
+  "base": #fdf8f4,
+  "disabled": #f7f7f7,
+);
 
-//forms
-$input-padding: 1.2rem 1.6rem;
-$border-color: #d1d5db;
+$card-colors: (
+  "primary": #ffffff,
+  "secondary": #e8f6f1,
+  "cta": #18a175,
+);
 
-//radius
-$border-radius: 0.4rem;
-$border-radius-lg: 0.8rem;
+// TYPOGRAPHY
+$font-families: (
+  "primary": (
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif,
+  ),
+  "heading": (
+    "Plus Jakarta Sans",
+    "Inter",
+    sans-serif,
+  ),
+  "system": (
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif,
+  ),
+);
 
-//shadows
-$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+$font-sizes: (
+  "xs": 1.2rem,
+  "sm": 1.4rem,
+  "base": 1.6rem,
+  "lg": 1.8rem,
+  "xl": 2.4rem,
+  "2xl": 3.2rem,
+  "3xl": 4.8rem,
+);
+
+// SPACING
+$spacing-base: 0.8rem; // 8px
+$spacing: (
+  "xs": $spacing-base * 1,  // 8px
+  "sm": $spacing-base * 2,  // 16px
+  "md": $spacing-base * 3,  // 24px
+  "lg": $spacing-base * 4,  // 32px
+  "xl": $spacing-base * 6,  // 48px
+  "2xl": $spacing-base * 8, // 64px
+  "3xl": $spacing-base * 12 // 96px
+);
+
+// BREAKPOINTS
+$breakpoints: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+  "2xl": 1536px,
+);
+
+// Z-INDEX LAYERS
+$z-layers: (
+  "dropdown": 100,
+  "overlay": 200,
+  "modal": 300,
+  "popover": 400,
+  "tooltip": 500,
+  "notification": 600,
+);
+
+// ANIMATIONS
+$transitions: (
+  'fast': 150ms ease-in-out,
+  'base': 200ms ease, // default value
+  'moderate': 250ms ease-in-out,
+  'slow': 300ms ease-in-out
+);
+
+// LAYOUT
+$container-max-width: 1280px;
+$grid-columns: 12;
+$gutter-width: $spacing-base * 3;
+
+// BORDERS
+$border-radius: (
+  "sm": 0.2rem,
+  "base": 0.4rem,
+  "md": 0.6rem,
+  "lg": 0.8rem,
+  "xl": 1.2rem,
+  "full": 9999px,
+);
+
+// SHADOWS
+$shadows: (
+  "sm": 0 1px 2px rgba(11, 32, 39, 1.0),
+  "md": 0 4px 6px -1px rgba(11, 32, 39, 1.0),
+  "lg": 0 10px 15px -3px rgba(11, 32, 39, 1.0),
+  "xl": 0 20px 25px -5px rgba(11, 32, 39, 1.0),
+);
+
+// FORMS
+$form: (
+  "input-padding": 1.2rem 1.6rem,
+  "border-color": #d1d5db,
+  "focus-color": var(--color-primary),
+  "error-color": var(--color-danger),
+);

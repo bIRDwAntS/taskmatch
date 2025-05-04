@@ -1,25 +1,24 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as m;
+@use '../abstracts' as *;
 
 .footer {
-  background: v.$color-gray-900;
-  color: v.$color-white;
-  padding: v.$spacing-xl 0 v.$spacing-md;
+  background: color('dark');
+  color: text-color('secondary');
+  padding: spacing('xl') 0 spacing('md');
   
   &__content {
-    display: grid;
-    gap: v.$spacing-xl;
-    
-    @include m.breakpoint(md) {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    @include grid(
+      $gap: spacing('xl'),
+      $responsive: (
+        'md': 3
+      )
+    );
   }
   
   &__copyright {
-    border-top: 1px solid v.$border-color-light;
-    margin-top: v.$spacing-xl;
-    padding-top: v.$spacing-md;
+    border-top: 1px solid rgba(text-color('secondary'), 0.2);
+    margin-top: spacing('xl');
+    padding-top: spacing('md');
     text-align: center;
-    color: v.$text-light;
+    color: text-color('muted');
   }
 }

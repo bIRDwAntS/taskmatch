@@ -1,46 +1,46 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as m;
+@use '../abstracts' as *;
 
 .grid {
-  display: grid;
-  gap: v.$spacing-md;
+  @include grid(
+    $gap: spacing('md'),
+    $responsive: (
+      'sm': 2,
+      'md': 3,
+      'lg': 4
+    )
+  );
+
+  &--gap-sm { gap: spacing('sm'); }
+  &--gap-lg { gap: spacing('lg'); }
   
-  //mobile-first grid
-  grid-template-columns: 1fr;
-  
-  @include m.breakpoint(sm) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  @include m.breakpoint(md) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  @include m.breakpoint(lg) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  //variants
+  // Variants
   &--2 {
-    @include m.breakpoint(sm) {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    @include grid(
+      $gap: spacing('md'),
+      $responsive: (
+        'sm': 2
+      )
+    );
   }
   
   &--3 {
-    @include m.breakpoint(md) {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    @include grid(
+      $gap: spacing('md'),
+      $responsive: (
+        'md': 3
+      )
+    );
   }
 }
 
-//flex row for simple layout
+// Flex row pour layouts simples
 .row {
+  --gap: #{spacing('md')};
   display: flex;
   flex-wrap: wrap;
-  margin: 0 calc(v.$spacing-md * -0.5);
+  margin: 0 calc(var(--gap) * -0.5);
   
-  > * { //target all children
-    padding: 0 calc(v.$spacing-md * 0.5);
+  > * {
+    padding: 0 calc(var(--gap) * 0.5);
   }
 }

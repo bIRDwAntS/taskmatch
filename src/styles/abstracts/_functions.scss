@@ -1,0 +1,49 @@
+//DRY strategy: those functions are like smart shortcuts
+//they do 2 things : check if the key exists & notify if misspelled
+@use 'sass:map';
+@use 'variables' as *; 
+
+// COLORS
+@function color($key) {
+  @if map.has-key($colors, $key) {
+    @return map.get($colors, $key);
+  }
+  @warn "Color '#{$key}' not found.";
+  @return null;
+}
+
+// TEXT COLORS
+@function text-color($key) {
+  @if map.has-key($text-colors, $key) {
+    @return map.get($text-colors, $key);
+  }
+  @warn "Text color '#{$key}' not found.";
+  @return null;
+}
+
+// SPACING
+@function spacing($key) {
+  @if map.has-key($spacing, $key) {
+    @return map.get($spacing, $key);
+  }
+  @warn "Spacing '#{$key}' not found.";
+  @return null;
+}
+
+// BREAKPOINTS
+@function breakpoint($key) {
+  @if map.has-key($breakpoints, $key) {
+    @return map.get($breakpoints, $key);
+  }
+  @warn "Breakpoint '#{$key}' not found.";
+  @return null;
+}
+
+// ANIMATIONS
+@function transition($key) {
+  @if map.has-key($transitions, $key) {
+    @return map.get($transitions, $key);
+  }
+  @warn "Transition '#{$key}' not found.";
+  @return 200ms ease; // default value
+}

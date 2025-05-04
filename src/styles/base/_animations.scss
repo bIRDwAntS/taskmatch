@@ -1,24 +1,40 @@
-@use '../abstracts/variables' as v;
+@use '../abstracts' as *;
 
-//custom transition base in which property can be set : ex : @include a.transition-base(transform);
-$transition-base: all 0.2s ease;
+@mixin transition-base($property: all, $speed: 'base') {
+  transition: $property transition($speed);
+}
 
-//custom property
-@mixin transition-base($property: all) {
-    transition: $property 0.2s ease;
-  }
+// Transform + shadow with customable timing
+@mixin transition-lift($speed: 'moderate') {
+  $timing: transition($speed);
+  transition: transform $timing, box-shadow $timing;
+}
 
-  //transform+shadow
-@mixin transition-lift {
-    @include transition-base(transform box-shadow, 0.25s);
-  }
+// Fade with customable timing
+@mixin transition-fade($speed: 'slow') {
+  transition: opacity transition($speed);
+}
 
-  //fade
-  @mixin transition-fade {
-    @include transition-base(opacity, 0.3s, ease-in-out);
-  }
+// Interactive with multiple properties
+@mixin transition-interactive($speed: 'base') {
+  $timing: transition($speed);
+  transition: background-color $timing, border-color $timing, color $timing;
+}
 
-  //background-color+border
-  @mixin transition-interactive {
-    @include transition-base(background-color border-color, 0.2s);
-  }
+// how to use :
+// .button {
+//   @include transition-interactive(); // uses 'default' speed
+  
+//   &:hover {
+//     @include transition-interactive('fast'); // increased speed
+//   }
+// }
+// or
+// .card {
+//   @include transition-lift(); // uses 'moderate' by default
+  
+//   &:hover {
+//     transform: translateY(-4px);
+//     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+//   }
+// }

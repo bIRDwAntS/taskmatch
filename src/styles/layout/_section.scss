@@ -1,32 +1,39 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as m;
+@use '../abstracts' as *;
 
 .section {
-  padding: v.$spacing-xl 0;
+  padding: spacing('xl') 0;
   
-  @include m.breakpoint(md) {
-    padding: v.$spacing-2xl 0;
+  @include media('md') {
+    padding: spacing('2xl') 0;
   }
   
-  //spacing variants
+  // Spacing variants
   &--sm {
-    padding: v.$spacing-lg 0;
+    padding: spacing('lg') 0;
   }
   
   &--lg {
-    padding: v.$spacing-2xl 0;
+    padding: spacing('2xl') 0;
     
-    @include m.breakpoint(md) {
-      padding: v.$spacing-3xl 0;
+    @include media('md') {
+      padding: spacing('3xl') 0;
     }
   }
   
-  //background color variants
-  &--gray {
-    background-color: v.$color-gray-50;
-  }
-  
+  // Background variants
   &--primary {
-    background-color: v.$color-primary-light;
+    background-color: color('primary');
+  }
+
+  &--neutral {
+    background-color: color('neutral');
+  }
+
+  &--info {
+    background-color: color('info');
+  }
+
+  &--avis {
+    background-color: color('avis');
   }
 }

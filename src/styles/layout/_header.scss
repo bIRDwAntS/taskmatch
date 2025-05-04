@@ -1,38 +1,41 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as m;
+@use '../abstracts' as *;
+@use 'sass:map';
 
 .header {
-  background: v.$color-white;
-  box-shadow: v.$shadow-sm;
+  background: color('neutral');
+  box-shadow: map.get($shadows, 'sm');
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: map.get($z-layers, 'dropdown');
   
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: v.$spacing-md 0;
+    padding: spacing('md') 0;
   }
   
   &__logo {
-    font-size: 2rem;
+    font-size: map.get($font-sizes, 'xl'); // 2.4rem
     font-weight: 700;
+    color: text-color('primary');
   }
   
   &__nav {
     display: none;
     
-    @include m.breakpoint(md) {
+    @include media('md') {
       display: flex;
-      gap: v.$spacing-lg;
+      gap: spacing('lg');
     }
   }
   
   &__mobile-toggle {
     display: block;
+    cursor: pointer;
+    @include transition('opacity');
     
-    @include m.breakpoint(md) {
+    @include media('md') {
       display: none;
     }
   }

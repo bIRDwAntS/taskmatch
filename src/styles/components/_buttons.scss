@@ -1,73 +1,44 @@
-@use "../abstracts/variables" as v;
-@use "../abstracts/mixins" as m;
-@use "../base/animations" as a;
+@use '../abstracts' as *;
+@use 'sass:map';
 
-//button base & states
+@each $variant, $color in $button-colors {
+  .btn-#{$variant} {
+    @include button-base();
+    @include button-variant($variant);
+  }
+}
+
+@each $variant, $color in $button-colors {
+  .btn-#{$variant} {
+    @include button-base();
+    @include button-variant($variant);
+  }
+}
+
 .btn {
-  display: inline-block;
-  padding: v.$spacing-xs v.$spacing-sm;
-  font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 1.5;
-  text-align: center;
-  border-radius: v.$border-radius;
-  cursor: pointer;
-  @include a.transition-base;
-  text-decoration: none;
-  user-select: none; //copy btn text denied
-  border: none; //not set for variations
-  background: none; //not set for variations
-
-  //size variations
   &--small {
-    padding: 0.6rem 1.2rem;
-    font-size: 1.4rem;
+    padding: spacing('xs') spacing('sm');
+    font-size: map.get($font-sizes, 'sm');
   }
-
+  
   &--large {
-    padding: 1.2rem 2.4rem;
-    font-size: 1.8rem;
+    padding: spacing('md') spacing('lg');
+    font-size: map.get($font-sizes, 'lg');
   }
-  //common states
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(v.$color-primary, 0.1);
+  
+  &--block {
+    width: 100%;
   }
-  &--loading {
-    position: relative;
-    color: transparent !important;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 1.6rem;
-      height: 1.6rem;
-      margin-top: -0.8rem;
-      margin-left: -0.8rem;
-      border: 2px solid v.$color-white;
-      border-right-color: transparent;
-      border-radius: 50%;
-      animation: spin 0.75s linear infinite;
+  
+  &--outlined {
+    background-color: transparent;
+    border: 2px solid currentColor;
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
     }
   }
 }
 
-//variations
-.btn--primary {
-    @include m.button-variant(v.$color-primary);
-  }
-
-  .btn--secondary {
-    @include m.button-variant-outline(v.$color-primary);
-  }
-  
-  .btn--danger {
-    @include m.button-variant(v.$color-danger);
-  }
-  
-
-  .btn--success {
-    @include m.button-variant(v.$color-success); 
-  }
+// how to use :
+// <button class="btn-base btn--small btn--outlined">small button with border</button>

@@ -1,7 +1,13 @@
 {
   "compilerOptions": {
-    "strict": true,         
-    "isolatedModules": true, 
+    "jsx": "react-jsx",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "isolatedModules": true,
     "noImplicitAny": true,    
     "baseUrl": ".",           
     "paths": {                
@@ -10,5 +16,6 @@
       "@features/*": ["src/features/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

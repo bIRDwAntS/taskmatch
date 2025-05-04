@@ -1,4 +1,7 @@
 //reset CSS for better custom
+@use 'sass:map';
+@use '../abstracts' as *;
+
 *,
 *::before,
 *::after {
@@ -10,16 +13,27 @@
 html {
     font-size: 62.5%; // 1rem = 10px, ease calcuation
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent; //avoid highlight on mobile
   }
 
   body {
     margin: 0;
     padding: 0;
-    font-size: 1.6rem; // 16px for better accessibility 
+    font-family: map.get($font-families, 'primary');
+    font-size: map.get($font-sizes, 'base'); 
     line-height: 1.5;
-    -webkit-font-smoothing: antialiased; // makes fonts render thinner and sharper on macOS/iOS
-    -moz-osx-font-smoothing: grayscale; // Firefox equivalent for crisp font rendering on macOS
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: map.get($colors, 'primary');
   }
+
+
+  ::selection { // css pseudo-element to custom text style user selection. By default blue. Here set to secondary bg color & primary text color
+    background-color: map.get($colors, 'secondary');
+    color: map.get($text-colors, 'primary');
+  }
+  
+
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -41,22 +55,32 @@ html {
     text-decoration: none;
   }
 
-  img {
-    //making image reponsive by default
+  img, picture, video, canvas, svg {
+    //making medias reponsive by default
+    display: block;
     max-width: 100%;
     height: auto;
-    display: block;
   }
 
-  button {
-    //reset form btn
-    cursor: pointer;
-    border: none;
-    background: none;
+  //reset form 
+  button, input, textarea, select {
     font: inherit;
     color: inherit;
   }
   
-  input, textarea, select {
-    font: inherit;
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0; 
+    text-align: inherit; // avoid centering by default
+    
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  :focus-visible { //for better accessibility
+    outline: 2px solid map.get($colors, 'secondary');
+    outline-offset: 2px;
   }
