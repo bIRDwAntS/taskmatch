@@ -27,10 +27,10 @@ This project is open-source for educational and demonstration purposes.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/taskmatch.git
+git clone https://github.com/bIRDwAntS/taskmatch.git
 
 # Navigate to project directory
-cd taskmatch
+cd premium_mvp
 
 # Install dependencies
 npm install
