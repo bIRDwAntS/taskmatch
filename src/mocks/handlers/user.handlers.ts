@@ -1,5 +1,3 @@
-// src/mocks/handlers/user.handlers.ts
-
 import { http, delay, HttpResponse } from 'msw';
 import { TApiResponseWrapper, EVerificationLevel  } from '../../types/api.types';
 import { 
@@ -12,15 +10,13 @@ import {
 //   hasVerificationLevel
 } from '../data/verifications';
 
-/**
- * Helper pour créer une réponse d'erreur
- */
+// helper to create an error response
 const createErrorResponse = (
     status: number, 
     message: string,
-    error?: unknown  // Paramètre optionnel pour l'erreur
+    error?: unknown  // optional
   ): Response => {
-    // Log l'erreur (uniquement en développement)
+    //log the error only in development
     if (process.env.NODE_ENV !== 'production' && error) {
       console.error(`API Error (${status}): ${message}`, error);
     }
@@ -31,9 +27,7 @@ const createErrorResponse = (
     );
   };
 
-/**
- * Helper pour créer une réponse API standardisée
- */
+// helper to create a standardized API response
 const createApiResponse = <T>(
   data: T,
   success = true,
@@ -48,21 +42,19 @@ const createApiResponse = <T>(
 };
 
 
-/**
- * Handlers pour les endpoints utilisateur
- */
+// handlers for user endpoints
 export const userHandlers = [
   // GET /api/user/profile
   http.get('/api/user/profile', async ({ request }) => {
     try {
-      // Délai léger pour simuler le réseau
+      // short delay to simulate network
       await delay(300);
       
-      // Parse les paramètres de requête
+      // parse request parameters
       const url = new URL(request.url);
-      const userId = url.searchParams.get('userId') || 'user-1';
+      const userId = url.searchParams.get('userId') || 'user-3';
       
-      // Récupérer le profil utilisateur
+      // retrieve user profile
       const profile = getUserProfile(userId);
       
       if (!profile) {
@@ -81,7 +73,7 @@ export const userHandlers = [
   http.get('/api/user/verification-status', async ({ request }) => {
     try {
       const url = new URL(request.url);
-      const userId = url.searchParams.get('userId') || 'user-1';
+      const userId = url.searchParams.get('userId') || 'user-3';
       
       const verificationStatus = getVerificationStatus(userId);
       
@@ -101,7 +93,7 @@ export const userHandlers = [
   http.get('/api/user/stats', async ({ request }) => {
     try {
       const url = new URL(request.url);
-      const userId = url.searchParams.get('userId') || 'user-1';
+      const userId = url.searchParams.get('userId') || 'user-3';
       
       const stats = getUserStats(userId);
       
@@ -127,7 +119,7 @@ export const userHandlers = [
         return createErrorResponse(400, 'Niveau de vérification requis');
       }
       
-      // Logique simplifiée basée sur le niveau
+      // simplified logic based on level
       let result;
       switch (level) {
         case EVerificationLevel.EMAIL:
@@ -164,7 +156,7 @@ export const userHandlers = [
         return createErrorResponse(400, 'Plan et méthode de paiement requis');
       }
       
-      // Réponse simplifiée
+      // simplified response
       const isAnnual = plan === 'annual';
       const premiumResult = {
         success: true,

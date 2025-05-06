@@ -6,9 +6,7 @@ import {
     IVerificationResult 
   } from '../../types/api.types';
   
-  /**
-   * Verification status for an unverified user
-   */
+ // verification status for an unverified user
   export const mockUnverifiedStatus: IVerificationStatus = {
     currentLevel: EVerificationLevel.NONE,
     steps: [
@@ -29,9 +27,7 @@ import {
     lastUpdated: '2024-05-01T12:00:00Z'
   };
   
-  /**
-   * Verification status with email completed
-   */
+  // verification status with email completed
   export const mockEmailVerifiedStatus: IVerificationStatus = {
     currentLevel: EVerificationLevel.EMAIL,
     steps: [
@@ -53,9 +49,7 @@ import {
     lastUpdated: '2024-04-15T10:30:00Z'
   };
   
-  /**
-   * Verification status with failed identity verification
-   */
+// verification status with failed identity verification
   export const mockFailedIdentityStatus: IVerificationStatus = {
     currentLevel: EVerificationLevel.EMAIL,
     steps: [
@@ -78,9 +72,7 @@ import {
     lastUpdated: '2024-04-20T14:45:00Z'
   };
   
-  /**
-   * Fully verified status
-   */
+ //fully verified status
   export const mockFullyVerifiedStatus: IVerificationStatus = {
     currentLevel: EVerificationLevel.FULL,
     steps: [
@@ -103,26 +95,22 @@ import {
     lastUpdated: '2024-03-10T11:15:00Z'
   };
   
-  /**
-   * Verification status with corrupted data
-   * Used for testing error handling
-   */
+ // verification status with corrupted data
+ //for testing error handling
   export const mockCorruptedVerificationStatus: IVerificationStatus = {
-    currentLevel: '' as EVerificationLevel, // Invalid level
-    steps: [], // No steps
-    lastUpdated: 'invalid-date' // Invalid date
+    currentLevel: '' as EVerificationLevel, // invalid level
+    steps: [], // no steps
+    lastUpdated: 'invalid-date' // nivalid date
   };
   
-  /**
-   * Inconsistent verification status
-   * Current level doesn't match completed steps
-   */
+// inconsistent verification status
+// current level doesn't match completed steps
   export const mockInconsistentVerificationStatus: IVerificationStatus = {
     currentLevel: EVerificationLevel.FULL,
     steps: [
       {
         level: EVerificationLevel.EMAIL,
-        status: EVerificationStepStatus.PENDING // Inconsistent with currentLevel
+        status: EVerificationStepStatus.PENDING // inconsistent with currentLevel
       },
       {
         level: EVerificationLevel.IDENTITY,
@@ -136,9 +124,7 @@ import {
     lastUpdated: '2024-05-01T12:00:00Z'
   };
   
-  /**
-   * Possible verification results
-   */
+ // possible verification results
   export const mockVerificationResults = {
     success: {
       success: true,
@@ -177,33 +163,27 @@ import {
     } as IVerificationResult
   };
   
-  /**
-   * Map of verification statuses by user
-   */
+
+  // ----- MAPS
+ // map of verification statuses by user
   export const mockVerificationStatusMap = new Map<string, IVerificationStatus>([
-    ['user-1', mockUnverifiedStatus],
-    ['user-2', mockFullyVerifiedStatus],
     ['user-3', mockFullyVerifiedStatus],
-    ['user-4', mockUnverifiedStatus],
-    ['user-5', mockEmailVerifiedStatus]
+    ['user-6', mockFullyVerifiedStatus],
+    ['user-7', mockFullyVerifiedStatus] 
   ]);
   
-/**
- * Helper to retrieve a user's verification status
- * @param userId - The user's identifier
- * @returns IVerificationStatus | undefined
- */
+// helper to retrieve a user's verification status
+//@param userId - The user's identifier
+//@returns IVerificationStatus | undefined
 export const getVerificationStatus = (
     userId: string
   ): IVerificationStatus | undefined => {
     return mockVerificationStatusMap.get(userId);
   };
 
-  /**
- * Type guard to check if a value is a valid IVerificationStatus
- * @param value - The value to check
- * @returns boolean
- */
+// type guard to check if a value is a valid IVerificationStatus
+//@param value - The value to check
+//@returns boolean
 export const isVerificationStatus = (
   value: unknown
 ): value is IVerificationStatus => {
@@ -219,11 +199,9 @@ export const isVerificationStatus = (
 
 
 
-/**
- * Type guard to check if a value is a valid IVerificationResult
- * @param value - The value to check
- * @returns boolean
- */
+// type guard to check if a value is a valid IVerificationResult
+//@param value - The value to check
+//@returns boolean
 export const isVerificationResult = (
     value: unknown
   ): value is IVerificationResult => {
@@ -239,12 +217,10 @@ export const isVerificationResult = (
   };
  
   
-  /**
-   * Helper to check if a user has reached a verification level
-   * @param userId - The user's identifier
-   * @param level - The verification level to check
-   * @returns boolean
-   */
+// helper to check if a user has reached a verification level
+// @param userId - The user's identifier
+// @param level - The verification level to check
+// @returns boolean
   export const hasVerificationLevel = (
     userId: string, 
     level: EVerificationLevel
@@ -262,11 +238,9 @@ export const isVerificationResult = (
     return levelOrder.indexOf(status.currentLevel) >= levelOrder.indexOf(level);
   };
   
-  /**
-   * Helper to get the next required verification step
-   * @param userId - The user's identifier
-   * @returns EVerificationLevel | undefined
-   */
+// helper to get the next required verification step
+// @param userId - The user's identifier
+// @returns EVerificationLevel | undefined
   export const getNextVerificationStep = (
     userId: string
   ): EVerificationLevel | undefined => {
@@ -274,11 +248,9 @@ export const isVerificationResult = (
     return status?.nextRequiredStep;
   };
   
-  /**
- * Type guard to check if a value is a valid IVerificationStep
- * @param value - The value to check
- * @returns boolean
- */
+// type guard to check if a value is a valid IVerificationStep
+ //@param value - The value to check
+ //@returns boolean
 export const isVerificationStep = (
     value: unknown
   ): value is IVerificationStep => {
@@ -292,11 +264,9 @@ export const isVerificationStep = (
     );
   };
   
-  /**
-   * Helper to get all verification steps for a user
-   * @param userId - The user's identifier
-   * @returns IVerificationStep[]
-   */
+  // helper to get all verification steps for a user
+  // @param userId - The user's identifier
+  // @returns IVerificationStep[]
   export const getVerificationSteps = <T extends IVerificationStep>(
     userId: string
   ): T[] => {
@@ -304,12 +274,10 @@ export const isVerificationStep = (
     return (status?.steps || []) as T[];
   };
   
-  /**
-   * Helper to check if a specific step is completed
-   * @param userId - The user's identifier
-   * @param level - The verification level to check
-   * @returns boolean
-   */
+// helper to check if a specific step is completed
+//@param userId - The user's identifier
+//@param level - The verification level to check
+//@returns boolean
   export const isStepCompleted = (
     userId: string, 
     level: EVerificationLevel
@@ -319,19 +287,15 @@ export const isVerificationStep = (
     return step?.status === EVerificationStepStatus.COMPLETED;
   };
   
-  /**
-   * Helper to simulate a verification delay
-   * @param ms - Delay in milliseconds
-   * @returns Promise<void>
-   */
+// helper to simulate a verification delay
+// @param ms - Delay in milliseconds
+// @returns Promise<void>
   export const simulateVerificationDelay = (ms: number = 1500): Promise<void> => {
     return new Promise(resolve => setTimeout(resolve, ms));
   };
   
-  /**
-   * Helper to simulate a verification error
-   * @throws Error
-   */
+// Helper to simulate a verification error
+//@throws Error
   export const simulateVerificationError = (): never => {
     throw new Error('Erreur de vérification : Service temporairement indisponible');
   };
