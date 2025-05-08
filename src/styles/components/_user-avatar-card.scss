@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+@use 'sass:map';
+
+
+.user-avatar-card {
+    position: relative;
+    
+    &__avatar-container {
+      border-radius: map.get($border-radius, "xl");
+      
+    }
+    
+    &__avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: map.get($border-radius, "xl");
+    }
+  }

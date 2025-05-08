@@ -72,13 +72,13 @@ type TApiResponseWrapper<T> = {
    * full user profile
    */
   interface IUserProfile extends IUser {
-    bio?: string;
-    location?: string;
-    preferredLanguage: string;
-    notificationSettings: INotificationSettings;
-    skills?: string[];
-    rating?: number;
-    completedJobs?: number;
+  bio?: string;
+  location?: string;
+  preferredLanguage?: string; 
+  notificationSettings?: INotificationSettings; 
+  skills?: string[];
+  rating?: number;
+  completedJobs?: number;
   }
   
   /**

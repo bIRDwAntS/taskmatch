@@ -1,0 +1,36 @@
+@use '../abstracts' as *;
+@use 'sass:map';
+
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: map.get($colors, "primary");
+    z-index: map.get($z-layers, "notification");
+    
+    &__container {
+      display: flex;
+      justify-content: flex-end;
+      padding: map.get($spacing, "xs");
+      margin: 0 auto;
+      border-bottom: 1px solid map.get($colors, "neutral-dark");
+    }
+  
+    &__burger-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: map.get($spacing, "xs");
+      color: map.get($colors, "neutral-dark");
+
+      &:focus {
+        outline: 2px solid map.get($colors, "neutral-dark");
+        border-radius: map.get($border-radius, "sm");
+      }
+
+      svg {
+        stroke: map.get($text-colors, "primary");
+        stroke-width: 2;
+      }
+    }
+  }

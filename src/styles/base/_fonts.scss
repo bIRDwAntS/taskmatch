@@ -4,8 +4,8 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('../../assets/fonts/inter/Inter-Regular.woff2') format('woff2'),
-         url('../../assets/fonts/inter/Inter-Regular.woff') format('woff');
+    src: url('/inter/Inter-Regular.woff2') format('woff2'),
+         url('/inter/Inter-Regular.woff') format('woff');
   }
   
   @font-face {
@@ -13,8 +13,8 @@
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url('../../assets/fonts/inter/Inter-Medium.woff2') format('woff2'),
-         url('../../assets/fonts/inter/Inter-Medium.woff') format('woff');
+    src: url('/inter/Inter-Medium.woff2') format('woff2'),
+         url('/inter/Inter-Medium.woff') format('woff');
   }
   
   @font-face {
@@ -22,8 +22,8 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('../../assets/fonts/inter/Inter-Bold.woff2') format('woff2'),
-         url('../../assets/fonts/inter/Inter-Bold.woff') format('woff');
+    src: url('/inter/Inter-Bold.woff2') format('woff2'),
+         url('/inter/Inter-Bold.woff') format('woff');
   }
   
   // Plus Jakarta Sans
@@ -32,7 +32,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('../../assets/fonts/plus-jakarta-sans/PlusJakartaSans-Bold.woff2') format('woff2'),
-         url('../../assets/fonts/plus-jakarta-sans/PlusJakartaSans-Bold.woff') format('woff'),
-         url('../../assets/fonts/plus-jakarta-sans/PlusJakartaSans-Bold.ttf') format('truetype');
+    src: url('/plus-jakarta-sans/PlusJakartaSans-Bold.woff2') format('woff2'),
+         url('/plus-jakarta-sans/PlusJakartaSans-Bold.woff') format('woff'),
+         url('/plus-jakarta-sans/PlusJakartaSans-Bold.ttf') format('truetype');
   }

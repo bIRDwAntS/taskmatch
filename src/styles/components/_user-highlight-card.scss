@@ -1,0 +1,77 @@
+@use '../abstracts' as *;
+@use 'sass:map';
+
+.user-highlight-card {
+    background-color: map.get($colors, "avis");
+    margin-top: -8rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    
+    &--premium {
+      background-color: map.get($colors, "primary");
+      box-shadow: map.get($shadows, "sm");
+    }
+    
+    &__name {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0;
+      font-size: map.get($font-sizes, "base");
+      text-transform: capitalize;
+    }
+
+    &__rating-value {
+      color: map.get($text-colors, "muted");
+    }
+
+    &__rating-icon {
+      color: map.get($colors, "warning");
+    }
+
+    &__stats {
+      margin: 0.5rem 0 0;
+      color: map.get($text-colors, "neutral-dark");
+    }
+    
+    &__type {
+      margin: 0.5rem 0 0;
+      white-space: nowrap;
+      font-size: map.get($font-sizes, "base");
+      color: map.get($text-colors, "muted");
+    }
+  }
+
+
+  @media (min-width: 768px) {
+    .user-highlight-card {
+      min-width: 20rem;
+      margin-top: -8rem;
+      padding: 1.2rem 2rem ;
+      
+      // &--premium {
+        
+      // }
+      
+      &__name {
+        font-size: map.get($font-sizes, "lg");
+      }
+
+      &__stats {
+        color: map.get($text-colors, "muted");
+      }
+      
+      &__type {
+        color: map.get($text-colors, "neutral-dark");
+      }
+      
+      &__type {
+        margin: 0;
+        font-size: map.get($font-sizes, "base");
+        overflow-x:auto;
+      }
+    }
+  }

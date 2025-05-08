@@ -4,10 +4,10 @@ import { IUser, IUserProfile, IUserStats } from '../../types/api.types';
 //premium users (a user with active premium subscription)
 export const mockPremiumUser: IUser = {
   id: 'user-3', 
-  email: 'victhor@ringtwin.com',
-  firstName: 'vic',
-  lastName: 'thor',
-  avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Kingston&backgroundColor=ffdfbf',
+  email: 'vincent@ringtwin.com',
+  firstName: 'vincent',
+  lastName: 'arthsy',
+  avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Kingston&backgroundColor=b6e3f4',
   isVerified: true,
   isPremium: true,
   createdAt: '2023-06-10T08:00:00Z',
@@ -16,9 +16,9 @@ export const mockPremiumUser: IUser = {
 
 export const mockPremiumProUser: IUser = {
   id: 'user-6',
-  email: 'sebastien@ringtwin.com',
-  firstName: 'sébastien',
-  lastName: 'Smanne',
+  email: 'bastien@ringtwin.com',
+  firstName: 'bastien',
+  lastName: 'jul',
   avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Felix&backgroundColor=b6e3f4',
   isVerified: true,
   isPremium: true,
@@ -28,10 +28,10 @@ export const mockPremiumProUser: IUser = {
 
 export const mockPremiumCreativeUser: IUser = {
   id: 'user-7',
-  email: 'carl@ringtwin.com',
-  firstName: 'Carl',
-  lastName: 'Eric',
-  avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Aneka&backgroundColor=ffd5dc',
+  email: 'elsa@ringtwin.com',
+  firstName: 'elsa',
+  lastName: 'maje',
+  avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Liliana&backgroundColor=540187&body=variant15',
   isVerified: true,
   isPremium: true,
   createdAt: '2023-04-05T08:30:00Z',
@@ -43,13 +43,13 @@ export const mockPremiumCreativeUser: IUser = {
 // ---- IUSERPROFILE
 // ------ premium users for tests ----
 //complete user premium profile
-export const mockPremiumUserProfile: IUserProfile = {
+export const mockPremiumUserProfile: IUserProfile = { //vincent
   ...mockPremiumUser,
   bio: 'Développeur passionné par les technologies web modernes.',
   location: 'Bruxelles, Belgique',
   skills: ['React', 'TypeScript', 'SaSS'],
-  rating: 4.5,
-  completedJobs: 12,
+  rating: 4.9,
+  completedJobs: 24,
   preferredLanguage: 'en',
   notificationSettings: {
     email: true,
@@ -60,22 +60,7 @@ export const mockPremiumUserProfile: IUserProfile = {
 
 export const mockPremiumProUserProfile: IUserProfile = {
   ...mockPremiumProUser,
-  bio: 'Co-foundeur & CTO',
-  location: 'Bruxelles, Belgique',
-  skills: ['Cloud Architecture', 'DevOps', 'Solution Design'],
-  rating: 4.8,
-  completedJobs: 42,
-  preferredLanguage: 'fr',
-  notificationSettings: {
-    email: true,
-    push: true,
-    marketing: false
-  }
-};
-
-export const mockPremiumCreativeUserProfile: IUserProfile = {
-  ...mockPremiumCreativeUser,
-  bio: "Web Designer UX/UI freelance, passionnée par l'expérience utilisateur et l'accessibilité.",
+  bio: "Web Designer UX/UI freelance, passionné par l'expérience utilisateur et l'accessibilité.",
   location: 'Mons, Belgique',
   skills: ['React','UX Design', 'UI Design', 'Prototypage'],
   rating: 4.9,
@@ -88,6 +73,21 @@ export const mockPremiumCreativeUserProfile: IUserProfile = {
   }
 };
 
+export const mockPremiumCreativeUserProfile: IUserProfile = {
+  ...mockPremiumCreativeUser,
+  bio: 'Back Dev, passionnée par les technologies décentralisées &  hacktiviste éthique.',
+  location: 'Bruxelles, Belgique',
+  skills: ['Cloud Architecture', 'DevOps', 'Solution Design'],
+  rating: 4.8,
+  completedJobs: 42,
+  preferredLanguage: 'fr',
+  notificationSettings: {
+    email: true,
+    push: true,
+    marketing: false
+  }
+};
+
 
 
 
@@ -95,10 +95,10 @@ export const mockPremiumCreativeUserProfile: IUserProfile = {
 //standard unverified user
 export const mockBasicUser: IUser = {
   id: 'user-1',
-  email: 'kingston@example.com',
-  firstName: 'King',
-  lastName: 'Stong',
-  avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Kingston&backgroundColor=c0aede',
+  email: 'Simon@example.com',
+  firstName: 'simon',
+  lastName: 'klong',
+  avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=Aneka&backgroundColor=ffd5dc',
   isVerified: false,
   isPremium: false,
   createdAt: '2024-01-15T10:00:00Z',
@@ -155,13 +155,13 @@ export const mockDeletedUser: IUser & { deletedAt?: string } = {
 
 
 // ------ basic user profile with all data & info
-export const mockUserProfile: IUserProfile = {
+export const mockUserProfile: IUserProfile = { //Simon
   ...mockBasicUser,
   bio: 'Early adopter et utilisateur basic depuis le début.',
   location: 'Mons, Bruxelles',
   skills: ['Jardinage', 'Potager'],
-  rating: 4.8,
-  completedJobs: 24,
+  rating: 3.7,
+  completedJobs: 8,
   preferredLanguage: 'fr',
   notificationSettings: {
     email: true,
@@ -224,6 +224,7 @@ export const mockVerifiedUserStats: IUserStats = {
 // ---- LIST IUSER
 // list of users for tests with no error & threats
 export const mockUsersList: IUser[] = [
+  mockBasicUser,    
   mockPremiumUser,
   mockPremiumProUser,
   mockPremiumCreativeUser,   
@@ -259,6 +260,7 @@ export const mockUsersMap = new Map<string, IUser>(
 
 // map of user profiles
 export const mockProfilesMap = new Map<string, IUserProfile>([
+  ['user-1', mockUserProfile],
   ['user-3', mockPremiumUserProfile],
   ['user-6', mockPremiumProUserProfile],       
   ['user-7', mockPremiumCreativeUserProfile] 

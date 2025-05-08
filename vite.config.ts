@@ -5,6 +5,7 @@ import path from 'path';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  assetsInclude: ['**/*.woff', '**/*.woff2', '**/*.ttf'],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')

@@ -16,6 +16,7 @@
 }
 
 .btn {
+  @include button-base();
   &--small {
     padding: spacing('xs') spacing('sm');
     font-size: map.get($font-sizes, 'sm');
@@ -37,6 +38,18 @@
     &:hover {
       background-color: rgba(0, 0, 0, 0.05);
     }
+  }
+
+  &__primary {
+    background-color: map.get($button-colors, "cta");
+  }
+
+  &__primary:hover {
+    background-color: yellow;
+  }
+  
+  &__primary:active {
+    background-color: orange;
   }
 }
 

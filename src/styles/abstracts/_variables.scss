@@ -12,6 +12,7 @@ $colors: (
   "info": #e8f6f1,
   "avis": #fff5e6,
   "neutral": #e5e5e5,
+  "slate": #7371FC,
   "neutral-dark": #999999,
   'dark': #1a1a1a,
   "success": #10b981,
@@ -23,16 +24,21 @@ $colors: (
 $text-colors: (
   "primary": #333333,
   "secondary": #666666,
-  "white": #ffffff,
   "muted": #6b7280,
+  "neutral": #cac8c8,
+  "neutral-dark": #999999,
+  "white": #F5EFFF,
   "cta": #ff478f,
   "info": #18a175,
 );
 
 // Component colors
 $button-colors: (
-  "cta": #18a175,
-  "base": #fdf8f4,
+  "cta": #BFD1E5,
+  "base": #DEDEE0,
+  "sage": #A4B494,
+  "variant": #60AB9A,
+  "indigo": #9B7EDE,
   "disabled": #f7f7f7,
 );
 
@@ -65,13 +71,20 @@ $font-families: (
 );
 
 $font-sizes: (
-  "xs": 1.2rem,
-  "sm": 1.4rem,
-  "base": 1.6rem,
-  "lg": 1.8rem,
-  "xl": 2.4rem,
-  "2xl": 3.2rem,
-  "3xl": 4.8rem,
+"xs": 1.2rem,    // ~19px
+"sm": 1.4rem,    // ~22px
+"base": 1.6rem,  // ~26px
+"lg": 1.8rem,    // ~29px
+"xl": 2.4rem,    // ~38px
+"2xl": 3.2rem,   // ~51px
+"3xl": 4.8rem,   // ~77px
+);
+
+$font-weights: (
+"light": 200,
+"base": 500,
+"bold": 700,
+"black": 900,
 );
 
 // SPACING

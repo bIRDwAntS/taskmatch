@@ -17,14 +17,15 @@ html {
   }
 
   body {
+    background-color: map.get($colors, 'primary');
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+   
     font-family: map.get($font-families, 'primary');
     font-size: map.get($font-sizes, 'base'); 
     line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: map.get($colors, 'primary');
   }
 
 

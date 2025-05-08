@@ -74,13 +74,14 @@
   align-items: center;
   justify-content: center;
   
-  padding: map.get($form, 'input-padding');
+  padding: 1rem 4rem ;
   border: none;
   border-radius: map.get($border-radius, 'base');
   font-family: map.get($font-families, 'primary');
   font-size: map.get($font-sizes, 'base');
   font-weight: 500;
   text-decoration: none;
+  text-transform: uppercase;
 
   cursor: pointer;
   @include transition('all');
@@ -105,13 +106,7 @@
   background-color: $bg-color;
   color: $text-color;
   
-  &:hover {
-    background-color: color.scale($bg-color, $lightness: -5%);
-  }
-  
-  &:active {
-    background-color: color.scale($bg-color, $lightness: -10%);
-  }
+ 
   
   &:disabled,
   &.btn-disabled {

@@ -1,0 +1,36 @@
+@use '../abstracts' as *;
+@use 'sass:map';
+
+
+.certification-benefits {
+    &__list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: map.get($spacing, "xs");
+    }
+  
+    &__item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 0.75rem;
+      
+      // Bullet point personnalisé
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 0.75rem;
+        height: 0.75rem;
+        background-color: #3498db; // Couleur de base des bullets
+        border-radius: 50%;
+      }
+
+    @for $i from 1 through 5 {
+        &--#{$i} {
+          //formule: 1 pour les items 1-2, puis diminution progressive
+          opacity: if($i <= 2, 1, 1 - (($i - 2) * 0.3));
+        }
+      }
+    }
+  }

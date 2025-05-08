@@ -1,0 +1,52 @@
+@use "../abstracts" as *;
+@use "sass:map";
+
+.skill-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: -0.5rem;
+  margin-right: -0.5rem;
+  background-color: map.get($card-colors, "cta");
+  display: inline-flex;
+  align-items: center;
+  gap: map.get($spacing, "xs");
+  border: 1px solid map.get($colors, "dark");
+  border-radius: map.get($border-radius, "full");
+  white-space: nowrap;
+
+  padding: 4px 6px;
+
+  &__icon {
+    color: map.get($text-colors, "white");
+    flex-shrink: 0;
+    width: 32px;
+  }
+
+  &__text {
+    display: none;
+    font-family: map.get($font-families, "primary");
+    font-size: map.get($font-sizes, "sm");
+    color: map.get($text-colors, "white");
+    text-transform: lowercase;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 768px) {
+    .skill-badge {
+      right: 0;
+      margin-bottom: -1rem;
+      margin-right: -4rem;
+      border: 2px solid map.get($colors, "dark");
+
+      &__icon {
+        min-width: 24px;
+      }
+
+      &__text {
+        display: inline-flex;
+        font-size: map.get($font-sizes, "base");
+      }
+    }
+  }

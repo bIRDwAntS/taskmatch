@@ -2,7 +2,7 @@
 @use 'sass:map';
 
 body {
-  font-family: map.get($font-families, 'primary');
+  // font-family: map.get($font-families, 'primary');
   color: text-color('primary');
   line-height: 1.6;
 }
